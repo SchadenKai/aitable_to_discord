@@ -6,6 +6,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const { DocsController } = require("./controller/docsController");
+const { TaskController } = require("./controller/taskController");
 const app = express();
 
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 app.post("/docs", DocsController.research_and_evaluation)
+app.post("/task", TaskController.validateTask, TaskController.constructMessage, TaskController.sendToDiscord  )
 
 app.listen(3000, () => {
   console.log("Listening to http://localhost:" + 3000);
