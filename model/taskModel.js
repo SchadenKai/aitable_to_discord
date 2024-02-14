@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const TaskSchema = Joi.object({
+const TaskModel = Joi.object({
 	task_name: Joi.string().allow(""),
 	epic_title: Joi.string().allow(""),
 	member_names: Joi.string().allow(""),
@@ -21,4 +21,4 @@ const TaskSchema = Joi.object({
 });
 
 
-module.exports = TaskSchema
+module.exports = TaskModel

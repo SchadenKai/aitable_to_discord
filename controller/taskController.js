@@ -1,8 +1,8 @@
-const TaskSchema = require("../model/taskModel");
+const TaskModel = require("../model/taskModel");
 
 exports.TaskController = {
 	validateTask: (req, res, next) => {
-		const validated = TaskSchema.validate(req.body);
+		const validated = TaskModel.validate(req.body);
 		console.log(validated.warning);
 		if (validated.error) {
 			throw new Error(validated.error);

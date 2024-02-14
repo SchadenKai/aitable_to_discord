@@ -1,17 +1,11 @@
-class DocumentModel {
-  constructor(
-    record_title, 
-    document_title, 
-    record_url, 
-    datasheet_name,
-    author
-    ) { 
-        this.record_title = record_title, 
-        this.document_title = document_title, 
-        this.record_url = record_url,
-        this.datasheet_name = datasheet_name
-        this.author = author
-      }
-}
+const Joi = require("joi")
+
+const DocumentModel = Joi.object({
+  record_title : Joi.string().allow(""),
+  document_title : Joi.string().allow(""),
+  record_url : Joi.string().allow(""),
+  datasheet_name : Joi.string().allow(""),
+  author : Joi.string().allow("")
+})
 
 module.exports = DocumentModel
