@@ -29,7 +29,7 @@ exports.DocsController = {
 				],
 			};
 			const string_data = JSON.stringify(discord_msg);
-			const data = await fetch(process.env.DISCORD_PROD_WEBHOOK_URL, {
+			const data = await fetch(process.env.DISCORD_PROD_WEBHOOK_DOCS_URL, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

@@ -74,7 +74,7 @@ exports.TaskController = {
 	},
 	sendToDiscord: async (req, res) => {
 		try {
-			const data = await fetch(process.env.DISCORD_PROD_WEBHOOK_URL, {
+			const data = await fetch(process.env.DISCORD_PROD_WEBHOOK_TASKS_URL, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(req.body),
