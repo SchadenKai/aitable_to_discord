@@ -7,22 +7,23 @@ exports.DocsController = {
 			if (validated.error) {
 				throw new Error(validated.error)
 			}
+			console.log("Successfully validated the input!")
 			const discord_msg = {
-                username : validated.author.name,
-                avatar_url : validated.author.avatar,
+                username : validated.value.author.name,
+                avatar_url : validated.value.author.avatar,
 				embeds: [
 					{
-						title: `:mailbox:   New done document at ${validated.datasheet_name}!`,
+						title: `:mailbox:   New done document at ${validated.value.datasheet_name}!`,
 						color: 15258703,
-						description: `Go check it out here: ${validated.record_url}`,
+						description: `Go check it out here: ${validated.value.record_url}`,
                         fields : [
                             {
                                 name : "Record name",
-                                value : validated.record_title
+                                value : validated.value.record_title
                             },
                             {
                                 name : "Document title",
-                                value : validated.document_title
+                                value : validated.value.document_title
                             }
                         ]
 					},
@@ -36,7 +37,7 @@ exports.DocsController = {
 				},
 				body: string_data,
 			});
-			console.log(data);
+			console.log(data.statusText);
 			res.send({ message: "Successfully posted to Discord!" });
 		} catch (e) {
 			console.log(e.message);

@@ -5,7 +5,10 @@ const DocumentModel = Joi.object({
   document_title : Joi.string().allow(""),
   record_url : Joi.string().allow(""),
   datasheet_name : Joi.string().allow(""),
-  author : Joi.string().allow("")
+  author : Joi.object({
+    name : Joi.string().allow(""),
+    avatar : Joi.string().allow("")
+  })
 })
 
 module.exports = DocumentModel
