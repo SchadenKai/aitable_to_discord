@@ -17,6 +17,7 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 app.post("/docs", DocsController.research_and_evaluation)
+app.post("/meeting-notes", DocsController.meeting_notes)
 app.post("/task", TaskController.validateTask, TaskController.constructMessage, TaskController.sendToDiscord  )
 app.post("/epic", EpicsController.epic_creation)
 
